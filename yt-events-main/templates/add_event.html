@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-lg-12 col-xl-12 mx-auto">
+			<div class="card card-body my-5 shadow rounded">
+				<form action="{% url 'new' %}" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{ form|crispy }}
+			
+					<button type="submit" class="btn btn-outline-primary rounded-pill">
+						Schedule
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

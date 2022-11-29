@@ -1,0 +1,200 @@
+{% extends 'base.html' %} {% block content %}
+<!-- Header-->
+<header class="bg-primary bg-gradient text-white">
+	<div class="container px-4 text-center">
+		<h1 class="fw-bolder">Welcome To Events</h1>
+		<p class="lead">One and Only Place To Watch YouTube Events</p>
+	</div>
+	<div class="upcoming-event"></div>
+</header>
+
+<!-- events -->
+<section id="" class="p-0 my-5">
+	<div class="upcoming-events">
+		<div class="container">
+			<div class="row">
+				<h1 class="fw-bolder text-center my-4">Upcoming Event.</h1>
+				{% for events in upcoming_events %}
+				<div class="col-md-6 col-sm-12 mx-auto">
+					<div
+						class="{% if forloop.first %}card float-md-end card my-2 mx-auto {% else %}card my-2 mx-auto float-md-start{% endif %}"
+						style="width: 20rem"
+					>
+						<img
+							src="{{events.thumbnail.url}}"
+							class="card-img-top"
+							alt="..."
+							style="height: 10rem; object-fit: cover"
+						/>
+						<div class="card-body">
+							<h6 class="card-title" style="height: 3rem; overflow: hidden">
+								{{events.title | truncatewords:7}}
+							</h6>
+							<h6>
+								<a href="#" class="text-decoration-none text-secondary">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										fill="currentColor"
+										class="bi bi-calendar-check-fill"
+										viewBox="0 0 16 16"
+									>
+										<path
+											d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"
+										></path>
+									</svg>
+									{{events.scheduled_on}}
+								</a>
+							</h6>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="container mx-auto" id="event">
+		<h1 class="fw-bolder text-center my-3">
+			Take a look at our previous event.
+		</h1>
+		<div
+			class="event-category mx-auto d-flex justify-content-evenly flex-wrap my-5"
+		>
+			<a
+				type="button"
+				class="btn btn-outline-primary rounded-pill px-5 my-2"
+				href="{% url 'home'%}"
+				>Show All</a
+			>
+			<a
+				type="button"
+				class="btn btn-outline-primary rounded-pill px-5 my-2"
+				href="{% url 'home-category' 'tech-talks'%}"
+				>Tech Talks</a
+			>
+			<a
+				type="button"
+				class="btn btn-outline-primary rounded-pill px-5 my-2"
+				href="{% url 'home-category' 'freelancing'%}"
+				>Freelancing</a
+			>
+			<a
+				type="button"
+				class="btn btn-outline-primary rounded-pill px-5 my-2"
+				href="{% url 'home-category' 'content-creation'%}"
+				>Content Creation</a
+			>
+			<a
+				type="button"
+				class="btn btn-outline-primary rounded-pill px-5 my-2"
+				href="{% url 'home-category' 'finance'%}"
+				>Finance</a
+			>
+			<a
+				type="button"
+				class="btn btn-outline-primary rounded-pill px-5 my-2"
+				href="{% url 'home-category' 'entrepreneurship'%}"
+				>Entrepreneurship</a
+			>
+		</div>
+		<div class="upcoming-events">
+			<div class="container">
+				<div class="row">
+					{% for events in past_events %}
+					<div class="col-md-4 col-sm-12 col-xs-12 mx-auto">
+						<div class="card my-2 mx-auto" style="width: 20rem">
+							<img
+								src="{{events.thumbnail.url}}"
+								class="card-img-top"
+								alt="..."
+								style="height: 10rem; object-fit: cover"
+							/>
+							<div class="card-body">
+								<h6 class="card-title" style="height: 3rem; overflow: hidden">
+									{{events.title | truncatewords:7}}
+								</h6>
+
+								<div class="d-grid gap-2">
+									<button
+										type="button"
+										class="btn btn-outline-primary rounded-pill"
+										data-bs-toggle="modal"
+										data-bs-target="#videoModal"
+										onClick="playvideo({{events.id | safe}})"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="16"
+											height="16"
+											fill="currentColor"
+											class="bi bi-youtube"
+											viewBox="0 0 16 16"
+										>
+											<path
+												d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"
+											/>
+										</svg>
+										<span class="ms-1">Watch Now</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- modal -->
+<div
+	class="modal fade"
+	id="videoModal"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<button
+				type="button"
+				class="btn btn-danger close-btn"
+				aria-label="Close"
+				data-bs-dismiss="modal"
+				style="position: absolute; top: -3rem; right: 0"
+			>
+				<span>Close</span>
+			</button>
+			<div class="modal-body p-0">
+				<div class="ratio ratio-16x9">
+					<iframe
+						src=""
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+						id="video"
+					></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% block script %}
+
+<script>
+	function playvideo(id){
+		{% for events in past_events %}
+		if ('{{events.id | safe}}'  == id ) {
+			document.getElementById("video").src ="https://www.youtube.com/embed/{{events.video_id}}?enablejsapi=1"
+		}
+		{% endfor %}
+
+
+	}
+</script>
+{% endblock script %}
+<!-- modal end -->
+
+{% endblock content %}
