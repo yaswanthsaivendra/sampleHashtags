@@ -1,19 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link href="../../../core/static/css/styles.css" rel="stylesheet" type="text/css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <h1><center>{{hashtag.title}}</center></h1>
-    <!-- Events  -->
+    <!-- {% include 'includes/navbar.html' %} -->
 
-    {% for event in hashtag_set.objects.all %}
-        {{event.title}}
-    {% endfor %}
-
+<div class="container hashtagpage_container">
+    <div>
+        <h2 class="m-3">
+            <!-- <center>{{hashtag.title}}</center> -->
+            Python
     
+        </h2>
+    </div>
+    <div class="hashtagpage_btns" >
+        <btn class="btn btn-outline-primary py-2 px-3 m-2">Follow<i class="fa-solid fa-check mx-1"></i></btn>
+        <btn class="btn btn-outline-danger py-2  px-3 my-2">Report <i class="fa-solid fa-flag"></i></btn>
+    </div>
+   
+</div>
+    
+
+    <div class="container m-5">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 mx-auto ">
+                <div class="card float-md-end card my-2 mx-auto" style="width: 20rem">
+                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" class="card-img-top"
+                        alt="..." style="height: 10rem; object-fit: cover" />
+                    <div class="card-body">
+                        <h6 class="card-title" style="height: 3rem; overflow: hidden">
+                            neha
+                        </h6>
+                        <h6>
+                            <a href="#" class="text-decoration-none text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z">
+                                    </path>
+                                </svg>
+                                neha
+                            </a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 mx-auto">
+                <div class="card float-md-end card my-2 mx-auto" style="width: 20rem">
+                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" class="card-img-top"
+                        alt="..." style="height: 10rem; object-fit: cover" />
+                    <div class="card-body">
+                        <h6 class="card-title" style="height: 3rem; overflow: hidden">
+                            neha
+                        </h6>
+                        <h6>
+                            <a href="#" class="text-decoration-none text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z">
+                                    </path>
+                                </svg>
+                                neha
+                            </a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 mx-auto">
+                <div class="card float-md-end card my-2 mx-auto" style="width: 20rem">
+                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" class="card-img-top"
+                        alt="..." style="height: 10rem; object-fit: cover" />
+                    <div class="card-body">
+                        <h6 class="card-title" style="height: 3rem; overflow: hidden">
+                            neha
+                        </h6>
+                        <h6>
+                            <a href="#" class="text-decoration-none text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z">
+                                    </path>
+                                </svg>
+                                neha
+                            </a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
 </body>
+
 </html>

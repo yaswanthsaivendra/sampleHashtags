@@ -11299,3 +11299,9 @@ section {
   padding-top: 9rem;
   padding-bottom: 9rem;
 }
+.hashtagpage_container{
+  margin-top: 30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
